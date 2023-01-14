@@ -20,6 +20,7 @@ public class MergeSortTest {
 
         List<Integer> expected = new ArrayList<>(Arrays.asList(1, 3, 4, 4, 5, 9));
 
+        // printing this manually because i don't like how junit prints them
         System.out.println(output);
         System.out.println(expected);
         assertArrayEquals(expected.toArray(), output.toArray());

@@ -18,8 +18,8 @@ public class Merge<T extends Comparable<T>> implements IMerge<T> {
         while (leftIndex != listA.size() && rightIndex != listB.size()) {
             leftItem = listA.get(leftIndex);
             rightItem = listB.get(rightIndex);
-            System.out.println(leftItem + " " + rightItem + " " + leftItem.compareTo(rightItem));
-            // if this is negative -> it is less than
+
+            // if compareTo returns negative -> it leftItem is less than rightItem
             if (leftItem.compareTo(rightItem) > 0) {
                 result.add(rightItem);
                 rightIndex += 1;

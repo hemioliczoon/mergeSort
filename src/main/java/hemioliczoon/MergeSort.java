@@ -2,18 +2,25 @@ package hemioliczoon;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.*;
 
 public class MergeSort<T extends Comparable<T>> {
     private List<T> list;
-    private IMerge<T> merger;
+    private final IMerge<T> merger;
+    private final ExecutorService threadPool = new ThreadPoolExecutor(
+        4,
+        8, 1000,
+        TimeUnit.MILLISECONDS,
+        new ArrayBlockingQueue<Runnable>(8)
+    );
 
     public List<T> sort() {
         return _sort(this.list);
     }
 
     private List<T> _sort(List<T> list) {
+        // TODO: sort this properly? maybe idk it does work like this
         if (list.size() <= 2) {
-            // TODO: sort this properly
             if (list.size() < 2) {
                 return list;
             }
@@ -27,16 +34,35 @@ public class MergeSort<T extends Comparable<T>> {
         }
         int middle = list.size() / 2;
 
-        List<T> left = _sort(list.subList(0, middle));
-        List<T> right = _sort(list.subList(middle, list.size()));
+        Callable<List<T>> leftSort = new Callable<List<T>>() {
+            @Override
+            public List<T> call() throws Exception {
+                return _sort(list.subList(0, middle));
+            }
+        };
 
-        return merger.merge(left, right);
+        Callable<List<T>> rightSort = new Callable<List<T>>() {
+            @Override
+            public List<T> call() throws Exception {
+                return _sort(list.subList(middle, list.size()));
+            }
+        };
+
+        //List<T> left = _sort(list.subList(0, middle));
+        try {
+            Future<List<T>> left = this.threadPool.submit(leftSort);
+            Future<List<T>> right = this.threadPool.submit(rightSort);
+
+            return merger.merge(left.get(), right.get());
+        } catch (ExecutionException e) {
+            throw new RuntimeException(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     public MergeSort(List<T> list, IMerge<T> merger){
-        // split in half.
-        // call merge sort on each half
-        // merge results
         this.list = list;
         this.merger = merger;
     }
