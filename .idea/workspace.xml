@@ -5,11 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f27924b-3778-46b7-a357-088792897558" name="Changes" comment="basic merge sort">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hemioliczoon/Merge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hemioliczoon/Merge.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/hemioliczoon/MergeSort.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hemioliczoon/MergeSort.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/MergeSortTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/MergeSortTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,17 +38,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.General"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Gradle.MergeSortTest">
     <configuration name="MergeSortTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -147,10 +144,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.MergeSortTest" />
         <item itemvalue="Gradle.MergeSortTest.sort" />
         <item itemvalue="Gradle.MergeSortTest.merge" />
         <item itemvalue="Gradle.MergeSortTest.empty" />
-        <item itemvalue="Gradle.MergeSortTest" />
       </list>
     </recent_temporary>
   </component>

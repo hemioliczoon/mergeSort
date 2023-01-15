@@ -34,12 +34,12 @@ public class MergeSort<T extends Comparable<T>> {
         }
         int middle = list.size() / 2;
 
-        Callable<List<T>> leftSort = new Callable<List<T>>() {
-            @Override
-            public List<T> call() throws Exception {
-                return _sort(list.subList(0, middle));
-            }
-        };
+//        Callable<List<T>> leftSort = new Callable<List<T>>() {
+//            @Override
+//            public List<T> call() throws Exception {
+//                return _sort(list.subList(0, middle));
+//            }
+//        };
 
         Callable<List<T>> rightSort = new Callable<List<T>>() {
             @Override
@@ -50,10 +50,11 @@ public class MergeSort<T extends Comparable<T>> {
 
         //List<T> left = _sort(list.subList(0, middle));
         try {
-            Future<List<T>> left = this.threadPool.submit(leftSort);
+            List<T> left = _sort(list.subList(0, middle));
+            // Future<List<T>> left = this.threadPool.submit(leftSort);
             Future<List<T>> right = this.threadPool.submit(rightSort);
 
-            return merger.merge(left.get(), right.get());
+            return merger.merge(left, right.get());
         } catch (ExecutionException e) {
             throw new RuntimeException(e);
         } catch (InterruptedException e) {
